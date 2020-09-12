@@ -3,7 +3,8 @@ from placecollection import PlaceCollection
 from place import Place
 import csv
 
-def run_tests():
+
+def run_tests() :
     """Test PlaceCollection class."""
 
     # Test empty PlaceCollection (defaults)
@@ -56,5 +57,6 @@ def run_tests():
     assert place_collection.places
     # TODO: Add more tests, as appropriate, for each method
     print(place_collection.get_number_unvisited_places())
+
 
 run_tests()
