@@ -2,7 +2,7 @@
 from place import Place
 
 
-def run_tests():
+def run_tests() :
     """Test Place class."""
 
     # Test empty place (defaults)
@@ -20,7 +20,7 @@ def run_tests():
     # TODO: Write tests to show this initialisation works
     print("Test aleranate method for marking visited places")
     """This is the visited value that has changed from boolean to str; oupost should still be the same"""
-    new_places=place("Malagar", "spain",1,"n")
+    new_places = place("Malagar", "spain", 1, "n")
     print(new_places)
 
     # TODO: Add more tests, as appropriate, for each method
@@ -30,4 +30,6 @@ def run_tests():
     """Check if place has been visited or not"""
     print(new_places.is_important())
     """Important that place is added to the list"""
+
+
 run_tests()
