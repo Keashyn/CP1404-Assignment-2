@@ -1,4 +1,4 @@
-from placecollection import Placecollection as pc
+from placecollection import PlaceCollection as pc
 
 """import placecollection classes as name pc that constains all the functions like read data and save data"""
 
