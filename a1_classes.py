@@ -221,5 +221,5 @@ class a1() :
         print("Have a nice day")
 
 
-if __name__ == '__main__' :
-    a1.main()
+if '__main__' == name :
+    a1.main(self)
