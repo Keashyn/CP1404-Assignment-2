@@ -6,7 +6,7 @@ name = "places.csv"
 
 
 class PlaceCollection() :
-    def read(self) :
+    def read_data(self) :
         """This method is used for adding data to the list of data that is being stored in the csv file"""
         with open(name, mode='r')as file :
             """This function opens the file but in read mode only"""
@@ -43,14 +43,14 @@ class PlaceCollection() :
             self.sorted_data = sorted(self.data, reverse=True, key=lambda row : (row [ 3 ], int(row [ 2 ])))
             """This variable is for containing the sorted data based on user choice [THis one is same as number 3 with special occasion to reverse the value]"""
 
-    def add(self) :
+    def add_places(self) :
         """This method is used for adding places to the data based on user input"""
         self.new_places.append('n')
         """This append function is used to add fixed value for the new places that are unvisited"""
         self.data.append(self.new_places)
         """After all files have been checked and is True it will append or add data to the main data list"""
 
-    def save(self) :
+    def save_places(self) :
         """This method is used for saving data to the list of data that have been modified at the in the on_stop application"""
         with open(name, mode='w', newline="")as file :
             """This function opens the file but in write mode only"""
@@ -76,7 +76,7 @@ class PlaceCollection() :
         return count_visit
         """After the loop ends it will return unvisited places"""
 
-    def check_number(self, user_input) :
+    def check_numbers(self, user_input) :
         """This method is used for checking if there is a number in the user input"""
         data = list(user_input)
         """The data gotten from the user input will be putted into the list"""
@@ -99,7 +99,7 @@ class PlaceCollection() :
             """else if there is no number it will return True and passes the values"""
             return True
 
-    def check_symbol(self, user_input) :
+    def check_symbols(self, user_input) :
         """This method is used for checking  if there is symbol in the user input"""
         data = list(user_input)
         """The data gotten from the user input will be putted  into the list"""
@@ -121,7 +121,7 @@ class PlaceCollection() :
             """else if there is no number it will return True and passess the values"""
             return True
 
-    def priority_check(self, user_input) :
+    def priority_checking(self, user_input) :
         """This method is used for checking the  priority_check inputted by the user"""
         try :
             if int(user_input) <= 0 :
@@ -146,7 +146,7 @@ class PlaceCollection() :
                 self.root.ids.status.text = "Please enter a valid number"
                 """if it is it will return the text in status bar in application"""
 
-    def error_check(self, checking) :
+    def error_checking(self, checking) :
         """This method is used for checking  the user_input in city and country that has been inputted by the user"""
         if checking == "" :
             """First its try to check the user_input if its valid which its not empty"""
