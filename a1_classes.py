@@ -100,7 +100,7 @@ class a1() :
         else :
             print("{0} places. You still want to visit {1} places.".format(counting, visited))
 
-    def add_data(self, data) :
+    def add_place(self, data) :
         """Function to add data or places to the list of the CSV files"""
         new_places = [ ]
         while True :
@@ -127,18 +127,18 @@ class a1() :
 
         while True :
             try :
-                priority_num = int(input("Priority: "))
-                if priority_num <= 0 :
+                priority_number = int(input("Priority: "))
+                if priority_number <= 0 :
                     print("Number must be >0")
                 else :
                     break
             except ValueError :
                 print("Invalid input; enter a valid number")
         mark_visited = "n"
-        print("{0} in {1} (priority {2}) added to Travel Tracker".format(place_name, country_name, priority_num))
+        print("{0} in {1} (priority {2}) added to Travel Tracker".format(place_name, country_name, priority_number))
         new_places.append(place_name)
         new_places.append(country_name)
-        new_places.append(priority_num)
+        new_places.append(priority_number)
         new_places.append(mark_visited)
         data.append(new_places)
 
