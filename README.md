@@ -29,7 +29,8 @@ In this assignmnet i was struggling to make the applications into 3 classes and 
 based on the instruction that was givien in the assignment.
 
 ## 6. Describe what learning resources you used and how you used them.
-The learning resources i used was the practicals and the internet. The practiacls that i used to see where to start the code like square.kv and square.py
+The learning resources i used was the practicals,textbook which is The Practice of Computing Using Python and the internet. The practiacls that i used to see where to start the code like square.kv and square.py
+The textbook was used for reading on kivy and classes and on how to build the gui application. 
 The internet was used for finding definitions and what they mean so that i can understand it proprtly.
 
 ## 7. Describe the main challenges or obstacles you faced and how you overcame them.
