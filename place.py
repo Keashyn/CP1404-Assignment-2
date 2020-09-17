@@ -57,6 +57,7 @@ class Place (pc) :
             """if its false it will return False value that will give different input."""
             return False
 
+
     def __str__(self) :
         """method for test place"""
         for x in self.data :

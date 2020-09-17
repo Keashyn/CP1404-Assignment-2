@@ -50,8 +50,7 @@ class PlaceCollection ( ) :
         """This method is used for adding the place to the data based on user input that already through many error check."""
         self.new_place.append ("n")
         """this append function is to add fixed value for new added place will be unvisited."""
-        self.data.append (
-            self.new_place)
+        self.data.append (self.new_place)
         """after all files have been checked and true it will be append or add in main data list."""
 
     def save(self) :
