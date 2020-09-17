@@ -56,19 +56,18 @@ class TravelTracker (App, Place) :
                 """Conditions to check if its unvisited or visited to give different color"""
                 entries_box = Button (
                     id=str (id_count),
-                text = "{0} in {1}, priority {2}".format (a [ 0 ], a [ 1 ], a [ 2 ]),
-                background_color = UNVISITED_COLOR,
-                on_press = lambda x : Place.mark_place (self, x.id))
+                    text="{0} in {1}, priority {2}".format (a [ 0 ], a [ 1 ], a [ 2 ]),
+                    background_color=UNVISITED_COLOR,
+                    on_press=lambda x : Place.mark_place (self, x.id))
                 self.root.ids.entries_box.add_widget (entries_box)
             else :
                 """Conditions to check if its unvisited or visited to give different color"""
                 entries_box = Button (
                     id=str (id_count),
-                text = "{0} in {1}, priority {2} (visited)".format (a [ 0 ], a [ 1 ], a [ 2 ]),
-                background_color = VISITED_COLOR,
-                on_press = lambda x : Place.mark_place (self, x.id))
+                    text="{0} in {1}, priority {2} (visited)".format (a [ 0 ], a [ 1 ], a [ 2 ]),
+                    background_color=VISITED_COLOR,
+                    on_press=lambda x : Place.mark_place (self, x.id))
                 self.root.ids.entries_box.add_widget (entries_box)
-
 
     def sorted(self, sort_choice) :
         """This method is used for sorting based on users choice"""
