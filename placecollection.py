@@ -36,7 +36,7 @@ class PlaceCollection() :
             """This variable is for containing the sorted data based on user choice"""
         elif sort_by == 3 :
             """Sort by Visited places"""
-            self.sorted_data = sorted(self.data, reverse=False, key=lambda row : (row [ 3 ], int(row [ 2 ])))
+            self.sorted_data = sorted(self.data, reverse=False, key=lambda row: (row[3], int(row[2])))
             """This variable is for containing the sorted data based on user choice"""
         elif sort_by == 4 :
             """Sort by Unvisited places"""
