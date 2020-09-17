@@ -38,7 +38,8 @@ class TravelTracker (App, Place) :
     """This variable is used for defining first that it will give string property"""
     sort_options = ListProperty ( )
     """This variable is used for defining first that it will resulting list property"""
-
+    program_message = StringProperty()
+    """This variable is used for displaying the welcone message"""
     def on_stop(self) :
         """This method is used when users quit the app or the app stopped it will run the functions below which is saving the data"""
         Place.save (self)
@@ -90,6 +91,8 @@ class TravelTracker (App, Place) :
         """This is used to display the dictionary of choice in reverse"""
         self.current_sort = self.sort_options [ 0 ]
         """This is used for automatically sort the default by first options sort"""
+        self.root.ids.status.text= "Welcome to Travel Tracker 2.0"
+        """This is used to display the welcome messge to the user"""
         return self.root
         """It will return the application in kivy template that made before"""
 
