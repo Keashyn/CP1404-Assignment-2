@@ -8,7 +8,6 @@ name = "places.csv"
 """Constant value for showing filename"""
 
 class PlaceCollection ( ) :
-
     def read(self) :
         """This method is used for adding list of the data from csv files readed"""
         with open (name, mode='r') as file :
@@ -46,12 +45,7 @@ class PlaceCollection ( ) :
             self.sorted_data = sorted (self.data, reverse=True, key=lambda row : (row [ 3 ], int (row [ 2 ])))
             """This variable is for containing sorted data based on choice[ This one is the same with number 3 with special occasion to reverse the value"""
 
-    def add(self) :
-        """This method is used for adding the place to the data based on user input that already through many error check."""
-        self.new_place.append ("n")
-        """this append function is to add fixed value for new added place will be unvisited."""
-        self.data.append (self.new_place)
-        """after all files have been checked and true it will be append or add in main data list."""
+
 
     def save(self) :
         """This method is used for saving the data list that have been modified in the end that used in on_stop applications."""
