@@ -1,165 +1,168 @@
 import csv
 
-"""import csv library in order to read the csv file called places.csv"""
+"""import csv library in order to be able to read csv files"""
+
 name = "places.csv"
-"""Constant value for showing the name of the file"""
 
 
-class PlaceCollection() :
-    def read_data(self) :
-        """This method is used for adding data to the list of data that is being stored in the csv file"""
-        with open(name, mode='r')as file :
-            """This function opens the file but in read mode only"""
-            reader = csv.reader(file)
-            """Use the csv function to import the above so that it can read the file"""
+"""Constant value for showing filename"""
+
+class PlaceCollection ( ) :
+
+    def read(self) :
+        """This method is used for adding list of the data from csv files readed"""
+        with open (name, mode='r') as file :
+            """Open functions for open files but only in read mode"""
+            reader = csv.reader (file)
+            """Use csv functions imported above to be able to read the file"""
             for row in reader :
-                """This loop is used for to read the data in the csv file that is based on each line"""
-                self.data.append(list(row))
-                """The data in each line from the csv file will be added in a data variable"""
-        file.close()
-        """This function is used when closing files that has been open"""
+                """This loops is to read the data in csv data based on each line"""
+                self.data.append (list (row))
+                """The data each line from csv file will be added in data variable"""
+        file.close ( )
+        """Even with function is closing the files , i make more close function to make sure the files close"""
 
     def sort(self, sort_by) :
-        """This method is used for sorting the data that has been already read based on the user choose"""
-        """Each choice is already set in dictionary in main file for example: sort by visited function which means that sort by value of 3"""
+        """This method is used for sorting the data that already read based on choice that user choose."""
+        """each choice is already set in dictionary in main files, for example : sort by visited function means sort by value 3."""
         if sort_by == 0 :
-            """Sort by City name"""
-            self.sorted_data = sorted(self.data, reverse=False, key=lambda row : (row [ 0 ], int(row [ 2 ])))
-            """This variable is for containing the sorted data based on user choice"""
+            """sort by city name"""
+            self.sorted_data = sorted (self.data, reverse=False, key=lambda row : (row [ 0 ], int (row [ 2 ])))
+            """This variable is for containing sorted data based on choice"""
         elif sort_by == 1 :
-            """Sort by Country name"""
-            self.sorted_data = sorted(self.data, reverse=False, key=lambda row : (row [ 1 ], int(row [ 2 ])))
-            """This variable is for containing the sorted data based on user choice"""
+            """sort by Country"""
+            self.sorted_data = sorted (self.data, reverse=False, key=lambda row : (row [ 1 ], int (row [ 2 ])))
+            """This variable is for containing sorted data based on choice"""
         elif sort_by == 2 :
-            """"Sort by Priority"""
-            self.sorted_data = sorted(self.data, reverse=False, key=lambda row : (int(row [ 2 ])))
-            """This variable is for containing the sorted data based on user choice"""
+            """Sort by Priority"""
+            self.sorted_data = sorted (self.data, reverse=False, key=lambda row : (int (row [ 2 ])))
+            """This variable is for containing sorted data based on choice"""
         elif sort_by == 3 :
-            """Sort by Visited places"""
-            self.sorted_data = sorted(self.data, reverse=False, key=lambda row: (row[3], int(row[2])))
-            """This variable is for containing the sorted data based on user choice"""
+            """sort by Visited place"""
+            self.sorted_data = sorted (self.data, reverse=False, key=lambda row : (row [ 3 ], int (row [ 2 ])))
+            """This variable is for containing sorted data based on choice"""
         elif sort_by == 4 :
-            """Sort by Unvisited places"""
-            self.sorted_data = sorted(self.data, reverse=True, key=lambda row : (row [ 3 ], int(row [ 2 ])))
-            """This variable is for containing the sorted data based on user choice [THis one is same as number 3 with special occasion to reverse the value]"""
+            """sort by unvisited place"""
+            self.sorted_data = sorted (self.data, reverse=True, key=lambda row : (row [ 3 ], int (row [ 2 ])))
+            """This variable is for containing sorted data based on choice[ This one is the same with number 3 with special occasion to reverse the value"""
 
-    def add_places(self) :
-        """This method is used for adding places to the data based on user input"""
-        self.new_places.append('n')
-        """This append function is used to add fixed value for the new places that are unvisited"""
-        self.data.append(self.new_places)
-        """After all files have been checked and is True it will append or add data to the main data list"""
+    def add(self) :
+        """This method is used for adding the place to the data based on user input that already through many error check."""
+        self.new_place.append ("n")
+        """this append function is to add fixed value for new added place will be unvisited."""
+        self.data.append (
+            self.new_place)
+        """after all files have been checked and true it will be append or add in main data list."""
 
-    def save_places(self) :
-        """This method is used for saving data to the list of data that have been modified at the in the on_stop application"""
-        with open(name, mode='w', newline="")as file :
-            """This function opens the file but in write mode only"""
-            writer = csv.writer(file)
-            """Use the csv function to import the above so that it can read the file"""
+    def save(self) :
+        """This method is used for saving the data list that have been modified in the end that used in on_stop applications."""
+        with open (name, mode='w', newline="") as files :
+            """have the same function for opening files but in write mode."""
+            writer = csv.writer (files)
+            """use csv functions imported above to be able to read the file."""
             for row in self.sorted_data :
-                """This loop  used to read the data in the csv file that is based on each line and add them one bye one that has been sorted"""
-                writer.writerow(row)
-                """This writes the list of data in the file"""
-        file.close()
-        """This function is used when closing files that has been open"""
+                """loop for read each line of the data list and add them one by one that already sorted."""
+                writer.writerow (row)
+                """write the list of data in the files."""
+        files.close ( )
+        """even with function is closing the files , i make more close function to make sure the files close."""
 
-    def visit_places(self) :
-        """"The function to count unvisited places and keep track of unvisited places"""
+    def visit_place(self) :
+        """Function to count unvisited places and keep tracking of unvisited place"""
         count_visit = 0
-        """Variable to make 0 value at start and will be added if the loop data show visit."""
+        """variable to make 0 value at start and will be added if the loop data show visit."""
         for row in self.data :
-            """This loop is used for reading the data inside the data list"""
+            """loop for reading the data in side the data list."""
             if row [ 3 ] == "n" :
-                """The conditions in data that gets from the data list for checking if its unvisited"""
+                """conditions in data that get from data list for checking if its unvisited"""
                 count_visit += 1
                 """if the conditions are met the variable count_visit is added by 1"""
         return count_visit
-        """After the loop ends it will return unvisited places"""
+        """"after the loops end it can return the unvisited place."""
 
-    def check_numbers(self, user_input) :
-        """This method is used for checking if there is a number in the user input"""
-        data = list(user_input)
-        """The data gotten from the user input will be putted into the list"""
+    def check_number(self, user_input) :
+        """This method is used for check if there is number in the user input."""
+        data = list (user_input)
+        """the data get from the user input will be put in list."""
         counter = 0
-        """This variable is used for counting how many numbers"""
+        """this variable is used for count how many number"""
         for i in data :
-            """loops for checking  if its a digit or not"""
-            x = i.isdigit()
-            """With this function it will check if its digit or not"""
+            """loops for check if its a digit or not."""
+            x = i.isdigit ( )
+            """with this function it will check if its digit or not"""
             if x :
-                """"if its results True it will add the value of count 1"""
+                """if its results true it will add the value of count 1"""
                 counter += 1
             else :
                 """else it will keep the value of the counter"""
                 counter = counter
         if counter > 0 :
-            """if counter is more than 0 or there is number in the user input it will results to False"""
+            """if counter is more than 0 or there is number in the user input it will results False"""
             return False
         else :
-            """else if there is no number it will return True and passes the values"""
+            """else if there is no number it will return True and pass the values."""
             return True
 
-    def check_symbols(self, user_input) :
-        """This method is used for checking  if there is symbol in the user input"""
-        data = list(user_input)
-        """The data gotten from the user input will be putted  into the list"""
+    def check_symbol(self, user_input) :
+        """This method is used for check if there is symbol in the user input."""
+        data = list (user_input)
+        """the data get from the user input will be put in list."""
         counter = 0
-        """This variable is used for counting how many symbols"""
+        """this variable is used for count how many symbols"""
         for i in data :
-            """This loop is used  for checking  if its include with symbol or not"""
+            """loops for check if its include symbol or not."""
             SPECIAL_CHARACTERS = "!@#$%^&*()_-=+`~,./'[]<>?{}|\\"
             if i in SPECIAL_CHARACTERS :
-                """With this loop it will check every data if its included with the symbol or not , if so it will add counter with 1"""
+                """with this loop it will check every data if its include the symbol or not , if so it will add counter with 1."""
                 counter += 1
             else :
                 """else it will keep the value of the counter"""
                 counter = counter
         if counter > 0 :
-            """if counter is more than 0 or there is symbol in the user input it will results to False"""
+            """if counter is more than 0 or there is symbol in the user input it will results False"""
             return False
         else :
-            """else if there is no number it will return True and passess the values"""
+            """else if there is no number it will return True and pass the values."""
             return True
 
-    def priority_checking(self, user_input) :
-        """This method is used for checking the  priority_check inputted by the user"""
+    def priority_check(self, user_input) :
+        """This method is used for check priority check input by the users."""
         try :
-            if int(user_input) <= 0 :
-                """First its try to check the user_input if its valid which means positive numbers"""
+            if int (user_input) <= 0 :
+                """first its try check the user_input if its valid which means positive numbers."""
                 self.root.ids.status.text = "Priority us be > 0"
-                """if it is  it will return the text in status bar in application"""
+                """if it is it will return text in status bar in applications."""
             elif user_input == "" :
-                """First its try to check the user_input if its valid which its not empty"""
+                """first its try check the user_input if its valid which its not empty."""
                 self.root.ids.status.text = "All fields must be completed"
-                """if it is it will return the text in status bar in application"""
+                """if it is it will return text in status bar in applications."""
             else :
-                return int(user_input)
-                """if all conditions are met and there is no error it will returning the user_input"""
+                """return int (user_input)  # if all conditions are met and no error it will returning user input."""
         except ValueError :
             """With this except it will check and prevent error of the program if user not inputting integer data types"""
             if user_input == "" :
-                """First its try to check the user_input if its valid which its not empty"""
+                """first its try check the user_input if its valid which its not empty."""
                 self.root.ids.status.text = "All fields must be completed"
-                """if it is it will return the text in status bar in application"""
+                """if it is it will return text in status bar in applications."""
             else :
-                """if users put wrong number mixed with text it will show this"""
+                """if users put wrong number mixed with text it will show this."""
                 self.root.ids.status.text = "Please enter a valid number"
-                """if it is it will return the text in status bar in application"""
+                """if it is it will return text in status bar in applications."""
 
-    def error_checking(self, checking) :
-        """This method is used for checking  the user_input in city and country that has been inputted by the user"""
+    def error_check(self, checking) :
+        """This method is used for check user input in city and country inputed by the users."""
         if checking == "" :
-            """First its try to check the user_input if its valid which its not empty"""
+            """"first its try check the user_input if its valid which its not empty."""
             self.root.ids.status.text = "All field must be completed"
-            """if it is it will return the text in status bar in application"""
-        elif not self.check_number(checking) :
-            """This will call the method for checking  if the value consist number or not. if its true then it will ask for input in the correct name"""
+            """if it is it will return text in status bar in applications."""
+        elif not self.check_number (checking) :
+            """This will call the method for check if the value consist number or not. if its true then will ask for input correct name."""
             self.root.ids.status.text = "Please input correct name"
-            """if it is it will return the text in status bar in application"""
-        elif not self.check_symbol(checking) :
-            """This will call the method for checking  if the value consist number or not. if its true then it will ask for input in the correct name"""
+            """if it is it will return text in status bar in applications."""
+        elif not self.check_symbol (checking) :
+            """This will call the method for check if the value consist number or not. if its true then will ask for input correct name."""
             self.root.ids.status.text = "Please input correct name"
-            """if it is it will return the text in status bar in application"""
+            """if it is it will return text in status bar in applications."""
         else :
-            return checking.capitalize()
-            """This returns the  value after every error check have been fulfilled and to make sure that is sorted in the correct way and the  user input has been capitalized"""
+            return checking.capitalize ( )
+            """Returning value after every error check have been fulfilled and to make sure sort in correct way all user input will be capitalized."""

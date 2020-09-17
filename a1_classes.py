@@ -213,7 +213,7 @@ class a1 ( ) :
         self.write_data (name, csv_data)
 
     def main(self) :
-        data = self.read_data()
+        data = self.read_data ( )
         print ("Travel Tracker 1.0 - by Keashyn Naidoo")
         print ("{0} places loaded from {1}".format (self.visit_place (data) [ 1 ], name))
         self.get_option (data, name)
@@ -222,4 +222,4 @@ class a1 ( ) :
 
 
 if __name__ == '__main__' :
-    a1()
+    a1 ( )
