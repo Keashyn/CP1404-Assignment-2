@@ -108,43 +108,29 @@ class TravelTracker (App, Place) :
         self.root.ids.status.text = ""
         """Change status name text editor value or clear it"""
 
-    def add(self) :
+    def add_places(self) :
         """this method is used for adding new places and pass value from the app to place collections"""
-        count = 0  # variable to help check if there is an error
-        self.new_place.append (Place.error_check (self, self.root.ids.city_name.text))
-        # """it will be append the value in text editor  and check if its true it will return the value , else will return None"""
-        self.new_place.append (Place.error_check (self, self.root.ids.country_name.text))
-        # it will be append the value in text editor  and check if its true it will return the value , else will return None
-        self.new_place.append (Place.priority_check (self, self.root.ids.priority_num.text))
-        # it will be append the value in text editor  and check if its true it will return the value , else will return None
-        for xy in self.new_place :
-            """loop for read through the new place to check if there is none value"""
-            if xy == None :
-                """condition to check if its None value it will increase the value of count by one"""
-                count += 1
+        temp_list = [ ]
+        name = self.root.ids.city_name.text
+        country = self.root.ids.country_name.text
+        try :
+            priority = int (self.root.ids.priority_num.text)
+            if name == "" or country == "" or priority == "" :
+                self.root.ids.status.text = "All fields must be filled in."
+            elif priority <= 0 :
+                self.root.ids.status.text = "INVALLD number input."
             else :
-                """else will be return its self"""
-                count = count
-        if count > 0 :
-            """conditions to check if the count is more than 0 it will return true which mean have an error in the text editor."""
-            have_error = True
-        if not have_error :
-            """conditon to check if its False or means not having any error"""
-            Place.add (self)
-            """calling the method from add to add more value and add the new place in data list"""
-            self.clear_text ( )
-            """calling the method for clear the text editor and status bar"""
-            self.root.ids.status.text = (
-                "{0} in {1} priority {2} added".format (self.new_place [ 0 ], self.new_place [ 1 ],
-                                                        self.new_place [ 2 ]))
-            """this will displaying tht the place is added in status bar"""
-            self.new_place = [ ]
-            """to make sure its not double input , the variable will be replaced to nothing"""
-            self.sorted (self.root.ids.spinners.text)
-            """after the new button is added i make sure to sort the button backs"""
-        else :
-            """if conditions not met to make sure the value is empty not containing the none value the variable will be replaced to nothing."""
-            self.new_place = [ ]
+                temp_list.append (name)
+                temp_list.append (country)
+                temp_list.append (priority)
+                self.root.ids.status_text = "{} has been added.".format (name)
+                """tells user they have managed to add their new location to visit"""
+        except ValueError :
+            """will be displayed if user enters incorrect input"""
+            self.root.ids.status_text = "Invalid input. Fill in all fields and a number is chosen for 'Priority'."
+        self.root.ids.city_name.text = ""
+        self.root.ids.country_name.text = ""
+        self.root.ids.priority_num.text = ""
 
 
 if __name__ == "__main__" :
