@@ -27,9 +27,9 @@ from kivy.properties import ListProperty
 
 OPTIONS = {'Unvisited' : 4, 'Visited' : 3, 'Priority' : 2, 'Country' : 1, 'City' : 0}
 """This dictionary is used for choice and sorting from user preferences"""
-VISITED_COLOR = (2.0, 1.0, 0.0, 0.5)
+VISITED_COLOR = (0.1, 0.5, 0.6, 0.1)
 """Constant value for visited color"""
-UNVISITED_COLOR = (1.0, 0.0, 0.0, 1.0)
+UNVISITED_COLOR = (2.0, 0.0, 0.0, 0.5)
 """Constant value for unvisited color"""
 
 
