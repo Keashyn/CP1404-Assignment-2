@@ -129,7 +129,7 @@ class TravelTracker (App, Place) :
                 count = count
         if count > 0 :
             """Conditions to check if the count is more than 0 it will return true which mean have an error in the text editor"""
-            have_error = True
+            have_error = False
         if not have_error :
             """Conditon to check if its False or means not having any error"""
             Place.add (self)
@@ -147,6 +147,7 @@ class TravelTracker (App, Place) :
         else :
             """If conditions not met to make sure the value is empty not containing the none value the variable will be replaced to nothing"""
             self.new_place = [ ]
+
 
 
 if __name__ == "__main__" :
